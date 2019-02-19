@@ -28,7 +28,6 @@ def get_github_repo_commit(user_id):
         print('The user ID not found')
         return 0
     for repo in repo_list:
-        print(repo)
         repo_name = repo['name']
         #print(repo_name)
         commiit_url = "https://api.github.com/repos/%s/%s/commits" %(user_id, repo_name)
@@ -43,4 +42,4 @@ def get_github_repo_commit(user_id):
     return res
 
 
-get_github_repo_commit("daseda")
+#get_github_repo_commit("daseda")
