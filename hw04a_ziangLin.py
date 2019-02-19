@@ -20,11 +20,15 @@ def get_github_repo_commit(user_id):
     #print(type(repo_list))
     res = []
 
-    if (len(repo_list) == 2 and repo_list['message'] == 'Not Found') or repo_list == []:
+    if (len(repo_list) == 2 and repo_list['message']) or repo_list == []:
+        if repo_list['message'] == "API rate limit exceeded for 98.109.30.29. (But here's the good news: Authenticated " \
+                                   "requests get a higher rate limit. Check out the documentation for more details.)":
+            print("API rate limit exceeded.")
+            return -1
         print('The user ID not found')
         return 0
     for repo in repo_list:
-        #print(repo)
+        print(repo)
         repo_name = repo['name']
         #print(repo_name)
         commiit_url = "https://api.github.com/repos/%s/%s/commits" %(user_id, repo_name)
@@ -39,4 +43,4 @@ def get_github_repo_commit(user_id):
     return res
 
 
-get_github_repo_commit("richkempinski")
+get_github_repo_commit("daseda")
