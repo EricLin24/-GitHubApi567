@@ -276,8 +276,7 @@ class TestHw04a(unittest.TestCase):
                          msg='If enter a valid parameter, it suppose to return a list type value')
         self.assertEqual(type(client.get_github_repo_commit('richkempinski')[0]), str,
                          msg='Items in the list suppose to be string format')
-        self.assertEqual(client.get_github_repo_commit('richkempinski')[0], f'Repo: helloworld Number of commits: '
-                                                                            f'{len(raw_commit_list)}',
+        self.assertEqual(client.get_github_repo_commit('richkempinski')[0], f'Repo: helloworld Number of commits: {len(raw_commit_list)}',
                          msg="The item display should be 'Repo:... Number of commits:...'")
 if __name__ == '__main__':
     unittest.main()
